@@ -1,5 +1,5 @@
 package checkers;
-
+//TESTESTEST
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -145,7 +145,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
         col.setBounds(410,400,80,25);
         //was commented below
-        this.add(col);
+        //this.add(col);
         c1.addActionListener(this);
         c2.addActionListener(this);
         c1.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -204,7 +204,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         bkt.setBounds(420, 450, 100, 20);
         this.add(bkt);
         //2 below were commented
-        g=getGraphics();
+        //g=getGraphics();
         //g.drawImage(redN.getImage(),30,450,this);
     }
 
@@ -287,7 +287,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     }
 
     public void newGame()	{                            //creates a new game
-
+    	//TEST
         //Yellow takes the first move in both modes
         //If someone wants to move secondly, red has to be selected
         //Yellow is always at the bottom of the board
