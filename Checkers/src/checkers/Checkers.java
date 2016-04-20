@@ -19,8 +19,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     JButton newButton=new JButton("New Game");
     JButton undoButton=new JButton("Undo");
-    JButton hlpB=new JButton(hlp);
-    JButton snB=new JButton(snp);
+    JButton helpButton=new JButton(hlp);
+    JButton soundButton=new JButton(snp);
 
     ButtonGroup players = new ButtonGroup();
     JRadioButton p1 = new JRadioButton("1-Player", true);
@@ -96,8 +96,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setFocusPainted(false);
         p1.setFocusPainted(false);
         p2.setFocusPainted(false);
-        hlpB.setFocusPainted(false);
-        snB.setFocusPainted(false);
+        helpButton.setFocusPainted(false);
+        soundButton.setFocusPainted(false);
 
         diff.setFont(new Font("SansSerif",Font.PLAIN,11));
         col.setFont(new Font("SansSerif",Font.PLAIN,11));
@@ -108,27 +108,27 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         p2.setFont(new Font("SansSerif",Font.PLAIN,11));
         newButton.setFont(new Font("SansSerif",Font.BOLD,11));
         undoButton.setFont(new Font("SansSerif",Font.BOLD,11));
-        hlpB.setFont(new Font("SansSerif",Font.PLAIN,11));
-        snB.setFont(new Font("SansSerif",Font.PLAIN,11));
+        helpButton.setFont(new Font("SansSerif",Font.PLAIN,11));
+        soundButton.setFont(new Font("SansSerif",Font.PLAIN,11));
         msg.setFont(new Font("SansSerif",Font.PLAIN,11)); 
 
         newButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         undoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        hlpB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        snB.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        helpButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        soundButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         newButton.addActionListener(this);
         undoButton.addActionListener(this);
-        hlpB.addActionListener(this);
-        snB.addActionListener(this);
+        helpButton.addActionListener(this);
+        soundButton.addActionListener(this);
         newButton.setBounds(405,70,95,25);//297
         this.add(newButton);
         undoButton.setBounds(405,100,95,25);
         //was commented out
         this.add(undoButton);
-        hlpB.setBounds(415,10,25,25);
-        this.add(hlpB);
-        snB.setBounds(460,10,25,25);
-        this.add(snB);
+        helpButton.setBounds(415,10,25,25);
+        this.add(helpButton);
+        soundButton.setBounds(460,10,25,25);
+        this.add(soundButton);
         
         mode.setBounds(420,260,80,25);
         this.add(mode);
@@ -269,18 +269,18 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             new PlaySound("src//sounds//button.wav").start();
             undo();
         }
-        if(e.getSource()==hlpB){
+        if(e.getSource()==helpButton){
             new PlaySound("src//sounds//button.wav").start();
             hp.setVisible(true);
         }
-        if(e.getSource()==snB){
+        if(e.getSource()==soundButton){
             if(silent){
-                snB.setIcon(snp);
+                soundButton.setIcon(snp);
                 silent=false;
                 new PlaySound("src//sounds//button.wav").start();
             }
             else{
-                snB.setIcon(mup);
+                soundButton.setIcon(mup);
                 silent=true;
             }
         }
