@@ -18,7 +18,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     ImageIcon mup=new ImageIcon(new ImageIcon(getClass().getResource("/images/mute.jpg")).getImage());//mute.jpg
 
     JButton newButton=new JButton("New Game");
-    JButton unB=new JButton("Undo");
+    JButton undoButton=new JButton("Undo");
     JButton hlpB=new JButton(hlp);
     JButton snB=new JButton(snp);
 
@@ -91,7 +91,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         setLayout(null);
 
         newButton.setFocusPainted(false);
-        unB.setFocusPainted(false);
+        undoButton.setFocusPainted(false);
         c1.setFocusPainted(false);
         c2.setFocusPainted(false);
         p1.setFocusPainted(false);
@@ -107,24 +107,24 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         p1.setFont(new Font("SansSerif",Font.PLAIN,11));
         p2.setFont(new Font("SansSerif",Font.PLAIN,11));
         newButton.setFont(new Font("SansSerif",Font.BOLD,11));
-        unB.setFont(new Font("SansSerif",Font.BOLD,11));
+        undoButton.setFont(new Font("SansSerif",Font.BOLD,11));
         hlpB.setFont(new Font("SansSerif",Font.PLAIN,11));
         snB.setFont(new Font("SansSerif",Font.PLAIN,11));
         msg.setFont(new Font("SansSerif",Font.PLAIN,11)); 
 
         newButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        unB.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        undoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         hlpB.setCursor(new Cursor(Cursor.HAND_CURSOR));
         snB.setCursor(new Cursor(Cursor.HAND_CURSOR));
         newButton.addActionListener(this);
-        unB.addActionListener(this);
+        undoButton.addActionListener(this);
         hlpB.addActionListener(this);
         snB.addActionListener(this);
         newButton.setBounds(405,70,95,25);//297
         this.add(newButton);
-        unB.setBounds(405,100,95,25);
+        undoButton.setBounds(405,100,95,25);
         //was commented out
-        this.add(unB);
+        this.add(undoButton);
         hlpB.setBounds(415,10,25,25);
         this.add(hlpB);
         snB.setBounds(460,10,25,25);
@@ -296,7 +296,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         selectedMode=p1.isSelected()?1:2;
         difficulty=level.getSelectedIndex();
 
-        unB.setEnabled(false);
+        undoButton.setEnabled(false);
 
         won=0;
 
@@ -385,9 +385,9 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
         if(undoCount>3){
             if(selectedMode==1 && difficulty!=4)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
             else if(selectedMode==2)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
         }
         
         for(int i=0;i<8;i++){
