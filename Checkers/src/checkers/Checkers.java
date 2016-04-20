@@ -17,7 +17,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     ImageIcon snp=new ImageIcon(new ImageIcon(getClass().getResource("/images/sound.jpg")).getImage());//sound.jpg
     ImageIcon mup=new ImageIcon(new ImageIcon(getClass().getResource("/images/mute.jpg")).getImage());//mute.jpg
 
-    JButton nwB=new JButton("New Game");
+    JButton newButton=new JButton("New Game");
     JButton unB=new JButton("Undo");
     JButton hlpB=new JButton(hlp);
     JButton snB=new JButton(snp);
@@ -90,7 +90,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     private void setupGUI(){
         setLayout(null);
 
-        nwB.setFocusPainted(false);
+        newButton.setFocusPainted(false);
         unB.setFocusPainted(false);
         c1.setFocusPainted(false);
         c2.setFocusPainted(false);
@@ -106,22 +106,22 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setFont(new Font("SansSerif",Font.PLAIN,11));
         p1.setFont(new Font("SansSerif",Font.PLAIN,11));
         p2.setFont(new Font("SansSerif",Font.PLAIN,11));
-        nwB.setFont(new Font("SansSerif",Font.BOLD,11));
+        newButton.setFont(new Font("SansSerif",Font.BOLD,11));
         unB.setFont(new Font("SansSerif",Font.BOLD,11));
         hlpB.setFont(new Font("SansSerif",Font.PLAIN,11));
         snB.setFont(new Font("SansSerif",Font.PLAIN,11));
         msg.setFont(new Font("SansSerif",Font.PLAIN,11)); 
 
-        nwB.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        newButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
         unB.setCursor(new Cursor(Cursor.HAND_CURSOR));
         hlpB.setCursor(new Cursor(Cursor.HAND_CURSOR));
         snB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        nwB.addActionListener(this);
+        newButton.addActionListener(this);
         unB.addActionListener(this);
         hlpB.addActionListener(this);
         snB.addActionListener(this);
-        nwB.setBounds(405,70,95,25);//297
-        this.add(nwB);
+        newButton.setBounds(405,70,95,25);//297
+        this.add(newButton);
         unB.setBounds(405,100,95,25);
         //was commented out
         this.add(unB);
@@ -129,7 +129,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         this.add(hlpB);
         snB.setBounds(460,10,25,25);
         this.add(snB);
-
+        
         mode.setBounds(420,260,80,25);
         this.add(mode);
         p1.addActionListener(this);
