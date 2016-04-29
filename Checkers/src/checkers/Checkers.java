@@ -1,5 +1,5 @@
 package checkers;
-
+//TESTESTEST
 import javax.swing.*;
 import java.awt.event.*;
 import java.awt.*;
@@ -17,10 +17,10 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     ImageIcon snp=new ImageIcon(new ImageIcon(getClass().getResource("/images/sound.jpg")).getImage());//sound.jpg
     ImageIcon mup=new ImageIcon(new ImageIcon(getClass().getResource("/images/mute.jpg")).getImage());//mute.jpg
 
-    JButton nwB=new JButton("New Game");
-    JButton unB=new JButton("Undo");
-    JButton hlpB=new JButton(hlp);
-    JButton snB=new JButton(snp);
+    JButton newButton=new JButton("New Game");
+    JButton undoButton=new JButton("Undo");
+    JButton helpButton=new JButton(hlp);
+    JButton soundButton=new JButton(snp);
 
     ButtonGroup players = new ButtonGroup();
     JRadioButton p1 = new JRadioButton("1-Player", true);
@@ -37,12 +37,12 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
     JLabel diff=new JLabel("Difficulty Level");
     JLabel rp=new JLabel();
     JLabel rpt=new JLabel("Opponent's Piece");
-    JLabel bpt=new JLabel("Your Piece");
-    JLabel bp=new JLabel();
+    JLabel ypt=new JLabel("Your Piece");
+    JLabel yp=new JLabel();
     JLabel rk=new JLabel();
     JLabel rkt=new JLabel("Opponent's King");
-    JLabel bkt=new JLabel("Your King");
-    JLabel bk=new JLabel();
+    JLabel ykt=new JLabel("Your King");
+    JLabel yk=new JLabel();
 
     JComboBox level=new JComboBox();
 
@@ -85,19 +85,21 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
     Checkers(){
         setupGUI();
+        
     }
 
     private void setupGUI(){
+    	
         setLayout(null);
 
-        nwB.setFocusPainted(false);
-        unB.setFocusPainted(false);
+        newButton.setFocusPainted(false);
+        undoButton.setFocusPainted(false);
         c1.setFocusPainted(false);
         c2.setFocusPainted(false);
         p1.setFocusPainted(false);
         p2.setFocusPainted(false);
-        hlpB.setFocusPainted(false);
-        snB.setFocusPainted(false);
+        helpButton.setFocusPainted(false);
+        soundButton.setFocusPainted(false);
 
         diff.setFont(new Font("SansSerif",Font.PLAIN,11));
         col.setFont(new Font("SansSerif",Font.PLAIN,11));
@@ -106,30 +108,30 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setFont(new Font("SansSerif",Font.PLAIN,11));
         p1.setFont(new Font("SansSerif",Font.PLAIN,11));
         p2.setFont(new Font("SansSerif",Font.PLAIN,11));
-        nwB.setFont(new Font("SansSerif",Font.BOLD,11));
-        unB.setFont(new Font("SansSerif",Font.BOLD,11));
-        hlpB.setFont(new Font("SansSerif",Font.PLAIN,11));
-        snB.setFont(new Font("SansSerif",Font.PLAIN,11));
+        newButton.setFont(new Font("SansSerif",Font.BOLD,11));
+        undoButton.setFont(new Font("SansSerif",Font.BOLD,11));
+        helpButton.setFont(new Font("SansSerif",Font.PLAIN,11));
+        soundButton.setFont(new Font("SansSerif",Font.PLAIN,11));
         msg.setFont(new Font("SansSerif",Font.PLAIN,11)); 
 
-        nwB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        unB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        hlpB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        snB.setCursor(new Cursor(Cursor.HAND_CURSOR));
-        nwB.addActionListener(this);
-        unB.addActionListener(this);
-        hlpB.addActionListener(this);
-        snB.addActionListener(this);
-        nwB.setBounds(405,70,95,25);//297
-        this.add(nwB);
-        unB.setBounds(405,100,95,25);
+        newButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        undoButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        helpButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        soundButton.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        newButton.addActionListener(this);
+        undoButton.addActionListener(this);
+        helpButton.addActionListener(this);
+        soundButton.addActionListener(this);
+        newButton.setBounds(405,70,95,25);//297
+        this.add(newButton);
+        undoButton.setBounds(405,100,95,25);
         //was commented out
-        this.add(unB);
-        hlpB.setBounds(415,10,25,25);
-        this.add(hlpB);
-        snB.setBounds(460,10,25,25);
-        this.add(snB);
-
+        this.add(undoButton);
+        helpButton.setBounds(415,10,25,25);
+        this.add(helpButton);
+        soundButton.setBounds(460,10,25,25);
+        this.add(soundButton);
+        
         mode.setBounds(420,260,80,25);
         this.add(mode);
         p1.addActionListener(this);
@@ -143,7 +145,7 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         this.add(p1);
         this.add(p2);
 
-        col.setBounds(410,400,80,25);
+        col.setBounds(420,340,80,25);
         //was commented below
         this.add(col);
         c1.addActionListener(this);
@@ -152,8 +154,8 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         c2.setCursor(new Cursor(Cursor.HAND_CURSOR));
         colors.add(c1);
         colors.add(c2);
-        c1.setBounds(415,420,80,25); //90,440,80,25
-        c2.setBounds(415,440,80,25); //90,420,80,25
+        c1.setBounds(415,370,80,25);//90,440,80,25
+        c2.setBounds(415,398,80,25); //90,420,80,25
         //2 below were commented
         this.add(c1);
         this.add(c2);
@@ -186,11 +188,11 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         rpt.setBounds(60, 450, 60, 20);
         this.add(rpt);
 
-        bp.setBounds(110, 440, 50, 50);
-        bp.setIcon(yellowN);
-        this.add(bp);
-        bpt.setBounds(160, 450, 90, 20);
-        this.add(bpt);
+        yp.setBounds(110, 440, 50, 50);
+        yp.setIcon(yellowN);
+        this.add(yp);
+        ypt.setBounds(160, 450, 90, 20);
+        this.add(ypt);
 
         rk.setBounds(250, 440, 50, 50);
         rk.setIcon(redK);
@@ -198,18 +200,20 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
         rkt.setBounds(305, 450, 60, 20);
         this.add(rkt);
 
-        bk.setBounds(365, 440, 50, 50);
-        bk.setIcon(yellowK);
-        this.add(bk);
-        bkt.setBounds(420, 450, 100, 20);
-        this.add(bkt);
+        yk.setBounds(365, 440, 50, 50);
+        yk.setIcon(yellowK);
+        this.add(yk);
+        ykt.setBounds(420, 450, 100, 20);
+        this.add(ykt);
         //2 below were commented
-        g=getGraphics();
-        //g.drawImage(redN.getImage(),30,450,this);
+        //g=getGraphics();
+        //g.drawImage(redN.getImage(),500,500,this); //redN.getImage(),30,450,this
+       
     }
 
     public void paintComponent(Graphics g)	{
 		super.paintComponent(g);
+		
         g.setColor(new Color(0,0,0));
 
         for(int i=0;i<4;i++){
@@ -269,34 +273,35 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             new PlaySound("src//sounds//button.wav").start();
             undo();
         }
-        if(e.getSource()==hlpB){
+        if(e.getSource()==helpButton){
             new PlaySound("src//sounds//button.wav").start();
             hp.setVisible(true);
         }
-        if(e.getSource()==snB){
+        if(e.getSource()==soundButton){
             if(silent){
-                snB.setIcon(snp);
+                soundButton.setIcon(snp);
                 silent=false;
                 new PlaySound("src//sounds//button.wav").start();
             }
             else{
-                snB.setIcon(mup);
+                soundButton.setIcon(mup);
                 silent=true;
             }
         }
     }
 
     public void newGame()	{                            //creates a new game
-
+    
         //Yellow takes the first move in both modes
         //If someone wants to move secondly, red has to be selected
         //Yellow is always at the bottom of the board
 
+    	
         selectedColor= c1.isSelected() ? "red" : "yellow";
         selectedMode=p1.isSelected()?1:2;
         difficulty=level.getSelectedIndex();
 
-        unB.setEnabled(false);
+        undoButton.setEnabled(false);
 
         won=0;
 
@@ -331,14 +336,24 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
             preToMove3=preToMove2=preToMove1=toMove;
         }
 
+        
+        
         if (selectedMode == 1 && selectedColor.equalsIgnoreCase("yellow"))
 		{
+        	rpt.setText("Opponent's Piece");
+ 		   	ypt.setText("Your Piece");
+ 		   	rkt.setText("Opponent's King");
+ 		   	ykt.setText("Your Piece");
             this.toMove = redNormal;
             play();
 		}
 		else if (selectedMode==1 && selectedColor.equalsIgnoreCase("red"))
 		{
-           this.toMove = redNormal;
+			rpt.setText("Your Piece");
+		   	ypt.setText("Opponent's Piece");
+		   	rkt.setText("Your King");
+		   	ykt.setText("Opponent's Piece");
+		   	this.toMove = redNormal;
             play();
 		}
 
@@ -385,9 +400,9 @@ public class Checkers extends JPanel implements ActionListener, ItemListener, Mo
 
         if(undoCount>3){
             if(selectedMode==1 && difficulty!=4)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
             else if(selectedMode==2)
-                unB.setEnabled(true);
+                undoButton.setEnabled(true);
         }
         
         for(int i=0;i<8;i++){
